@@ -123,6 +123,62 @@
       <div class="body-wrap">
         
   
+    <article id="post-Xcode 8 构建版本无效或无法被找到的原因" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/">Xcode 8 构建版本无效或无法被找到的原因</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>啰嗦几句，可以略过。今天早上我用Xcode 8 构建了4个版本，到最后一个才真正的成功，app是替国外客户开发的，由于沟通不方便要多苦逼就有多苦逼。好在最后问题解决了。</p>
+</blockquote>
+<h3 id="主要原因：-info-plist文件的配置没有写好"><a href="#主要原因：-info-plist文件的配置没有写好" class="headerlink" title="主要原因： info.plist文件的配置没有写好"></a>主要原因： info.plist文件的配置没有写好</h3><p>苹果对于用户的隐私一向做的很好，在以前使用APP外的权限时，有些是不用写配置的，现在不同了。估计想做的更好，于是乎，以前不用设置的权限现在都要设置了。详细的请看下面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Privacy - Microphone Usage Description //麦克风权限</div><div class="line">Privacy - Contacts Usage Description   //通讯录权限</div><div class="line">Privacy - Camera Usage Description     //摄像头权限</div><div class="line">Privacy - NSSiriUsageDescription       //Siri的权限</div><div class="line">Privacy - Bluetooth Peripheral Usage Description //蓝牙</div><div class="line">Privacy - Reminders Usage Description  //提醒事项</div><div class="line">Privacy - Motion Usage Description     //运动与健康</div><div class="line">Privacy - Media Libaray Usage Description //媒体资源库</div><div class="line">Privacy - Calendars Usage Description  //日历</div></pre></td></tr></table></figure></p>
+<p>在APP中有用到什么就添加什么，<code>注意，value也得写。不然依旧无法通过。</code></p>
+<p>如下图：<br><img src="http://oeto56f8q.bkt.clouddn.com/xcode8infoset.png" alt="info.plist"></p>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>目前来说我只发先了这个，如果还有其他的原因后期再增加到这里。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" class="archive-article-date">
+  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-个人博客的搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,7 +295,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+    				<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a>
     			</div>
     	</section>
     
