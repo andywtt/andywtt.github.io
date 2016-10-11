@@ -270,6 +270,15 @@
 <h3 id="hexo-username-github-io-config-yml-基本配置"><a href="#hexo-username-github-io-config-yml-基本配置" class="headerlink" title="hexo username.github.io/_config.yml 基本配置"></a>hexo username.github.io/_config.yml 基本配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: 博客名    		//你博客的名字</div><div class="line">author: 博客作者  		//你的名字</div><div class="line">language: zh-Hans     	//语言 中文</div><div class="line">theme: yilia   		//主题名称</div><div class="line">deploy:</div><div class="line">  type: git    		//使用Git 发布</div><div class="line">  repo: https://github.com/username/username.github.io.git    // Github仓库</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <h3 id="hexo-常用命令"><a href="#hexo-常用命令" class="headerlink" title="hexo 常用命令"></a>hexo 常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;新建文章的标题&quot;		// 标题</div><div class="line">$ hexo s 						// 保存所写</div><div class="line">$ hexo clean						// 清除缓存文件 (db.json) 和已生成的静态文件 (public)</div><div class="line">$ hexo g							// 生成静态文件</div><div class="line">$ hexo d 						// 部署网站：部署之前请先生成静态文件</div></pre></td></tr></table></figure>
 <h3 id="hexo-主题更换"><a href="#hexo-主题更换" class="headerlink" title="hexo 主题更换"></a>hexo 主题更换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd 到hexo文件</div><div class="line">$ cd 到themes 文件</div><div class="line">$ git clone 主题地址</div><div class="line">$ git pull</div></pre></td></tr></table></figure>
+<h3 id="username-github-io-用域名来替换"><a href="#username-github-io-用域名来替换" class="headerlink" title="username.github.io 用域名来替换"></a>username.github.io 用域名来替换</h3><ul>
+<li>首先得有自己的域名，域名的购买可以直接去<a href="https://wanwang.aliyun.com/domain/?utm_medium=text&amp;utm_source=baidu&amp;utm_campaign=st#ym&amp;utm_content=se_2507" target="_blank" rel="external">阿里云的万网</a>购买。</li>
+<li>有了域名后，就直接去：<code>控制台</code> -&gt; <code>域名</code> -&gt; 点击所购买的域名进入 -&gt; <code>域名控制台</code> -&gt; <code>域名解析</code> 添加如下图的设置</li>
+</ul>
+<p><img src="http://oeto56f8q.bkt.clouddn.com/yumingset_10_11.png" alt="域名解析设置图"></p>
+<ul>
+<li>然后 在 .source/ 文件下面添加一个  CNAME 的文件，不知道如何创建的可以<a href="andywtt.github.io/CNAME">点这里下载</a>，记得把此文件放于<code>source</code>文件下面，此文件中编写你所购买的域名，如：andywu.cn </li>
+<li>最后把它提交的github上去就OK了，如何提交，可以直接使用 <code>$ hexo d -g</code> 指令执行</li>
+</ul>
 
       
     </div>
