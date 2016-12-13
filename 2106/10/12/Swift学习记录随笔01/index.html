@@ -4,17 +4,42 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: hexo | Andy</title>
+  <title>Swift 学习记录随笔01 | Andy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学海无涯苦作舟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Andy">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+  <meta name="description" content="如何关闭 Xcode 8 的系统log日志
+进入地方在你选择模拟器的左边有一个你的App图标和名字，
+点击一下选择Edit Scheme。 
+然后选择Run-&amp;gt;Environment Variables-&amp;gt;+号
+key: OS_ACTIVITY_MODE 
+value: disable
+
+tableview 的自带下拉刷新控件
+使用UIRefreshControl 实现 UITable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 学习记录随笔01">
+<meta property="og:url" content="http://yoursite.com/2106/10/12/Swift学习记录随笔01/index.html">
 <meta property="og:site_name" content="Andy">
-<meta property="og:description" content="学海无涯苦作舟">
+<meta property="og:description" content="如何关闭 Xcode 8 的系统log日志
+进入地方在你选择模拟器的左边有一个你的App图标和名字，
+点击一下选择Edit Scheme。 
+然后选择Run-&amp;gt;Environment Variables-&amp;gt;+号
+key: OS_ACTIVITY_MODE 
+value: disable
+
+tableview 的自带下拉刷新控件
+使用UIRefreshControl 实现 UITable">
+<meta property="og:updated_time" content="2016-12-02T07:36:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andy">
-<meta name="twitter:description" content="学海无涯苦作舟">
+<meta name="twitter:title" content="Swift 学习记录随笔01">
+<meta name="twitter:description" content="如何关闭 Xcode 8 的系统log日志
+进入地方在你选择模拟器的左边有一个你的App图标和名字，
+点击一下选择Edit Scheme。 
+然后选择Run-&amp;gt;Environment Variables-&amp;gt;+号
+key: OS_ACTIVITY_MODE 
+value: disable
+
+tableview 的自带下拉刷新控件
+使用UIRefreshControl 实现 UITable">
   
     <link rel="alternative" href="/atom.xml" title="Andy" type="application/atom+xml">
   
@@ -121,54 +146,102 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Swift学习记录随笔01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/08/个人博客的搭建/" class="archive-article-date">
-  	<time datetime="2016-10-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/08/个人博客的搭建/">个人博客的搭建</a>
+    <h1 class="article-title" itemprop="name">
+      Swift 学习记录随笔01
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何关闭-Xcode-8-的系统log日志"><a href="#如何关闭-Xcode-8-的系统log日志" class="headerlink" title="如何关闭 Xcode 8 的系统log日志"></a>如何关闭 Xcode 8 的系统log日志</h3><ul>
+<li>进入地方在你选择模拟器的左边有一个你的App图标和名字，</li>
+<li>点击一下选择Edit Scheme。 </li>
+<li>然后选择Run-&gt;Environment Variables-&gt;+号</li>
+<li>key: OS_ACTIVITY_MODE </li>
+<li>value: disable</li>
+</ul>
+<h3 id="tableview-的自带下拉刷新控件"><a href="#tableview-的自带下拉刷新控件" class="headerlink" title="tableview 的自带下拉刷新控件"></a>tableview 的自带下拉刷新控件</h3><ul>
+<li><p>使用UIRefreshControl 实现 UITableView下拉刷新</p>
+</li>
+<li><p>tabelview refreshcotrol</p>
+</li>
+</ul>
+<h3 id="虚化效果："><a href="#虚化效果：" class="headerlink" title="虚化效果："></a>虚化效果：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> blurEffect = <span class="type">UIBlurEffect</span>(style: .light)</div><div class="line"><span class="keyword">let</span> effect = <span class="type">UIVisualEffectView</span>(effect: blurEffect)</div><div class="line">effect.frame = <span class="type">CGRect</span>()</div><div class="line">supserView.addSubView(effect)</div></pre></td></tr></table></figure>
+<h3 id="第三方常用库"><a href="#第三方常用库" class="headerlink" title="第三方常用库"></a>第三方常用库</h3><ul>
+<li><p>Kingfisher 如同SDWebImage</p>
+</li>
+<li><p>Just 如同AFN</p>
+</li>
+</ul>
+<h3 id="swift中如何使用OC-的文件"><a href="#swift中如何使用OC-的文件" class="headerlink" title="swift中如何使用OC 的文件"></a>swift中如何使用OC 的文件</h3><ul>
+<li><p>new file oc file</p>
+</li>
+<li><p>创建一个 Bridging-Header.h</p>
+</li>
+<li><p>在 BridgingHeader 中 编写：#import &lt;库/库头文件&gt;</p>
+</li>
+</ul>
+<h3 id="心跳关键帧动画："><a href="#心跳关键帧动画：" class="headerlink" title="心跳关键帧动画："></a>心跳关键帧动画：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> btnAnime = <span class="type">CAKeyframeAnimation</span>(kePath: <span class="string">"transform.scale"</span>)</div><div class="line">btnAnime.values = [<span class="number">1.0</span>, <span class="number">0.7</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">1.0</span>]</div><div class="line">btnAnime.keyTimes = [<span class="number">0.0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.4</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</div><div class="line">btnAnime.duration = <span class="number">0.2</span></div><div class="line">btn.layer.add(btnAnime, forKey: <span class="string">"SHOW"</span>)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2106/10/12/Swift学习记录随笔01/" class="archive-article-date">
+  	<time datetime="2106-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2106-10-12</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+    <a href="/2106/10/17/Swift 学习记录随笔02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Swift 学习记录随笔02
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xcode 8 构建版本无效或无法被找到的原因</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+
 
 
       </div>
@@ -191,9 +264,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
