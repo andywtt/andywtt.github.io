@@ -5,18 +5,31 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2106/10 | Andy</title>
+  <link rel="dns-prefetch" href="http://www.andywu.cn">
+  <title>Swift 学习记录随笔03 | Andy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学海无涯苦作舟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Andy">
-<meta property="og:url" content="http://yoursite.com/archives/2106/10/index.html">
+  <meta name="description" content="如何设置状态栏为白色
+在info中添加key：View controller-based status bar appearance     value: NO
+然后在General -&amp;gt; Deployment Info -&amp;gt; Status Bar Style 设置为：Light
+
+给 UIButton 添加下划线(其他同理）12345678910111213navView.addSu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 学习记录随笔03">
+<meta property="og:url" content="http://www.andywu.cn/2016/12/02/Swift学习记录随笔03/index.html">
 <meta property="og:site_name" content="Andy">
-<meta property="og:description" content="学海无涯苦作舟">
+<meta property="og:description" content="如何设置状态栏为白色
+在info中添加key：View controller-based status bar appearance     value: NO
+然后在General -&amp;gt; Deployment Info -&amp;gt; Status Bar Style 设置为：Light
+
+给 UIButton 添加下划线(其他同理）12345678910111213navView.addSu">
+<meta property="og:updated_time" content="2016-12-13T09:53:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andy">
-<meta name="twitter:description" content="学海无涯苦作舟">
+<meta name="twitter:title" content="Swift 学习记录随笔03">
+<meta name="twitter:description" content="如何设置状态栏为白色
+在info中添加key：View controller-based status bar appearance     value: NO
+然后在General -&amp;gt; Deployment Info -&amp;gt; Status Bar Style 设置为：Light
+
+给 UIButton 添加下划线(其他同理）12345678910111213navView.addSu">
   
     <link rel="alternative" href="/atom.xml" title="Andy" type="application/atom+xml">
   
@@ -129,86 +142,151 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Swift学习记录随笔03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2106" class="archive-year">2106</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2106/10/17/Swift 学习记录随笔02/" class="archive-article-date">
-  	<time datetime="2106-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2106-10-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2106/10/17/Swift 学习记录随笔02/">Swift 学习记录随笔02</a>
+    <h1 class="article-title" itemprop="name">
+      Swift 学习记录随笔03
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <a href="/2016/12/02/Swift学习记录随笔03/" class="archive-article-date">
+  	<time datetime="2016-12-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-02</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何设置状态栏为白色"><a href="#如何设置状态栏为白色" class="headerlink" title="如何设置状态栏为白色"></a>如何设置状态栏为白色</h3><ul>
+<li>在info中添加key：<code>View controller-based status bar appearance</code>     value: <code>NO</code></li>
+<li>然后在General -&gt; Deployment Info -&gt; Status Bar Style 设置为：<code>Light</code></li>
+</ul>
+<h3 id="给-UIButton-添加下划线-其他同理）"><a href="#给-UIButton-添加下划线-其他同理）" class="headerlink" title="给 UIButton 添加下划线(其他同理）"></a>给 UIButton 添加下划线(其他同理）</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">navView.addSubview(disconnectButton)</div><div class="line">        <span class="keyword">let</span> disStr = <span class="type">NSMutableAttributedString</span>(string: <span class="type">NSLocalizedString</span>(<span class="string">"LSEBike_Disconnect"</span>, comment: <span class="string">"断开"</span>))</div><div class="line">        disStr.addAttribute(<span class="type">NSUnderlineStyleAttributeName</span>, value: <span class="number">1</span>, range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, disStr.length))</div><div class="line">        disStr.addAttribute(<span class="type">NSForegroundColorAttributeName</span>, value: <span class="type">UIColor</span>.white, range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, disStr.length))</div><div class="line">        disconnectButton.setAttributedTitle(disStr, <span class="keyword">for</span>: .normal)</div><div class="line">        disconnectButton.titleLabel?.font = <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">15</span>)</div><div class="line">        disconnectButton.addTarget(<span class="keyword">self</span>, action: #selector(<span class="keyword">self</span>.clickDisconnect), <span class="keyword">for</span>: .touchUpInside)</div><div class="line">        disconnectButton.snp.makeConstraints &#123; (make) <span class="keyword">in</span></div><div class="line">            make.width.equalTo(<span class="number">60</span>)</div><div class="line">            make.height.equalTo(<span class="number">44</span>)</div><div class="line">            make.<span class="keyword">left</span>.equalTo(<span class="number">0</span>)</div><div class="line">            make.top.equalTo(<span class="number">20</span>)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.andywu.cn/2016/12/02/Swift学习记录随笔03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2106/10/12/Swift学习记录随笔01/" class="archive-article-date">
-  	<time datetime="2106-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2106-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2106/10/12/Swift学习记录随笔01/">Swift 学习记录随笔01</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/10/17/Swift 学习记录随笔02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift 学习记录随笔02</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
-    
+
+
+
+
+
+
 
 
           </div>
@@ -231,8 +309,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -262,11 +340,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-OC</a>
+                <a href="javascript:void(0)">iOS-Swift3.0</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-Swift3.0</a>
+                <a href="javascript:void(0)">iOS-OC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -321,7 +399,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Andy Wu&lt;br&gt;&lt;br&gt;一枚攻城狮&lt;br&gt;目前在一家创业公司&lt;br&gt;正行走在创业的道路上&lt;br&gt;&lt;br&gt;技术讨论可以联系我：&lt;br&gt;QQ  654531895&lt;br&gt;wechat  18811880712&lt;br&gt;</div>
   	  	
     	</section>
     

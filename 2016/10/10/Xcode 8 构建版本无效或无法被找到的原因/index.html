@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://www.andywu.cn">
   <title>Xcode 8 构建版本无效或无法被找到的原因 | Andy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言
@@ -14,7 +14,7 @@
 主要原因： info.plist文件的配置没有写好苹果对于用户的隐私一向做的很好，在以前使用APP外的权限时，有些是不用写配置的，现在不同了。估计想做的更好，于是乎，以前不用设置的权限现在都要设置了。详细的请看下面：123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode 8 构建版本无效或无法被找到的原因">
-<meta property="og:url" content="http://yoursite.com/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/index.html">
+<meta property="og:url" content="http://www.andywu.cn/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/index.html">
 <meta property="og:site_name" content="Andy">
 <meta property="og:description" content="前言
 啰嗦几句，可以略过。今天早上我用Xcode 8 构建了4个版本，到最后一个才真正的成功，app是替国外客户开发的，由于沟通不方便要多苦逼就有多苦逼。好在最后问题解决了。
@@ -162,7 +162,7 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>啰嗦几句，可以略过。今天早上我用Xcode 8 构建了4个版本，到最后一个才真正的成功，app是替国外客户开发的，由于沟通不方便要多苦逼就有多苦逼。好在最后问题解决了。</p>
 </blockquote>
-<h3 id="主要原因：-info-plist文件的配置没有写好"><a href="#主要原因：-info-plist文件的配置没有写好" class="headerlink" title="主要原因： info.plist文件的配置没有写好"></a>主要原因： info.plist文件的配置没有写好</h3><p>苹果对于用户的隐私一向做的很好，在以前使用APP外的权限时，有些是不用写配置的，现在不同了。估计想做的更好，于是乎，以前不用设置的权限现在都要设置了。详细的请看下面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Privacy - Microphone Usage Description //麦克风权限</div><div class="line">Privacy - Contacts Usage Description   //通讯录权限</div><div class="line">Privacy - Camera Usage Description     //摄像头权限</div><div class="line">Privacy - NSSiriUsageDescription       //Siri的权限</div><div class="line">Privacy - Bluetooth Peripheral Usage Description //蓝牙</div><div class="line">Privacy - Reminders Usage Description  //提醒事项</div><div class="line">Privacy - Motion Usage Description     //运动与健康</div><div class="line">Privacy - Media Libaray Usage Description //媒体资源库</div><div class="line">Privacy - Calendars Usage Description  //日历</div></pre></td></tr></table></figure></p>
+<h3 id="主要原因：-info-plist文件的配置没有写好"><a href="#主要原因：-info-plist文件的配置没有写好" class="headerlink" title="主要原因： info.plist文件的配置没有写好"></a>主要原因： info.plist文件的配置没有写好</h3><p>苹果对于用户的隐私一向做的很好，在以前使用APP外的权限时，有些是不用写配置的，现在不同了。估计想做的更好，于是乎，以前不用设置的权限现在都要设置了。详细的请看下面：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Privacy - Microphone Usage <span class="keyword">Description</span> <span class="comment">//麦克风权限</span></div><div class="line">Privacy - Contacts Usage <span class="keyword">Description</span>   <span class="comment">//通讯录权限</span></div><div class="line">Privacy - Camera Usage <span class="keyword">Description</span>     <span class="comment">//摄像头权限</span></div><div class="line">Privacy - NSSiriUsageDescription       <span class="comment">//Siri的权限</span></div><div class="line">Privacy - Bluetooth Peripheral Usage <span class="keyword">Description</span> <span class="comment">//蓝牙</span></div><div class="line">Privacy - Reminders Usage <span class="keyword">Description</span>  <span class="comment">//提醒事项</span></div><div class="line">Privacy - Motion Usage <span class="keyword">Description</span>     <span class="comment">//运动与健康</span></div><div class="line">Privacy - Media Libaray Usage <span class="keyword">Description</span> <span class="comment">//媒体资源库</span></div><div class="line">Privacy - Calendars Usage <span class="keyword">Description</span>  <span class="comment">//日历</span></div></pre></td></tr></table></figure></p>
 <p>在APP中有用到什么就添加什么，<code>注意，value也得写。不然依旧无法通过。</code></p>
 <p>如下图：<br><img src="http://oeto56f8q.bkt.clouddn.com/xcode8infoset.png" alt="info.plist"></p>
 <h3 id="Xcode-8-的-Capabilities-设置，有用到就打开。"><a href="#Xcode-8-的-Capabilities-设置，有用到就打开。" class="headerlink" title="Xcode 8 的 Capabilities 设置，有用到就打开。"></a>Xcode 8 的 Capabilities 设置，有用到就打开。</h3><p>如，<code>Push Notifications</code> 有用到推送的请打开，并保证 <code>Steps</code> 两项都打勾，不然一样无法通过。</p>
@@ -261,7 +261,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.andywu.cn/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,7 +275,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2106/10/12/Swift学习记录随笔01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/12/Swift学习记录随笔01/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -351,11 +351,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-OC</a>
+                <a href="javascript:void(0)">iOS-Swift3.0</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-Swift3.0</a>
+                <a href="javascript:void(0)">iOS-OC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -410,7 +410,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Andy Wu&lt;br&gt;&lt;br&gt;一枚攻城狮&lt;br&gt;目前在一家创业公司&lt;br&gt;正行走在创业的道路上&lt;br&gt;&lt;br&gt;技术讨论可以联系我：&lt;br&gt;QQ  654531895&lt;br&gt;wechat  18811880712&lt;br&gt;</div>
   	  	
     	</section>
     
