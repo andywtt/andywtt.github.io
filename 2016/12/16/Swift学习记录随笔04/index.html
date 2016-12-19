@@ -6,17 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.andywu.cn">
-  <title>Archives: 2016 | Andy</title>
+  <title>Swift 学习记录随笔04 | Andy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学海无涯苦作舟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Andy">
-<meta property="og:url" content="http://www.andywu.cn/archives/2016/index.html">
+  <meta name="description" content="字典转模型
+定义模型属性的时候，如果是对象，通常都是可选的
+模型属性在需要的时候创建，避免写构造函数，可以简化代码
+如果想要使用KVC设置数值，属性不能是 private 
+使用KVC方法之前，应该调用 super.init 保证对象实例化完成
+
+123456789101112class UserInfo: NSObject &amp;#123;    var name: String?    var a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 学习记录随笔04">
+<meta property="og:url" content="http://www.andywu.cn/2016/12/16/Swift学习记录随笔04/index.html">
 <meta property="og:site_name" content="Andy">
-<meta property="og:description" content="学海无涯苦作舟">
+<meta property="og:description" content="字典转模型
+定义模型属性的时候，如果是对象，通常都是可选的
+模型属性在需要的时候创建，避免写构造函数，可以简化代码
+如果想要使用KVC设置数值，属性不能是 private 
+使用KVC方法之前，应该调用 super.init 保证对象实例化完成
+
+123456789101112class UserInfo: NSObject &amp;#123;    var name: String?    var a">
+<meta property="og:updated_time" content="2016-12-19T10:10:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andy">
-<meta name="twitter:description" content="学海无涯苦作舟">
+<meta name="twitter:title" content="Swift 学习记录随笔04">
+<meta name="twitter:description" content="字典转模型
+定义模型属性的时候，如果是对象，通常都是可选的
+模型属性在需要的时候创建，避免写构造函数，可以简化代码
+如果想要使用KVC设置数值，属性不能是 private 
+使用KVC方法之前，应该调用 super.init 保证对象实例化完成
+
+123456789101112class UserInfo: NSObject &amp;#123;    var name: String?    var a">
   
     <link rel="alternative" href="/atom.xml" title="Andy" type="application/atom+xml">
   
@@ -129,246 +148,153 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Swift学习记录随笔04" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Swift 学习记录随笔04
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/16/Swift学习记录随笔04/" class="archive-article-date">
+
+        <a href="/2016/12/16/Swift学习记录随笔04/" class="archive-article-date">
   	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/16/Swift学习记录随笔04/">Swift 学习记录随笔04</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字典转模型"><a href="#字典转模型" class="headerlink" title="字典转模型"></a>字典转模型</h3><ul>
+<li>定义模型属性的时候，如果是对象，通常都是可选的</li>
+<li>模型属性在需要的时候创建，避免写构造函数，可以简化代码</li>
+<li>如果想要使用KVC设置数值，属性不能是 private </li>
+<li>使用KVC方法之前，应该调用 super.init 保证对象实例化完成</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> address: <span class="type">String</span>?</div><div class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>:<span class="type">Any</span>]) &#123;</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        setValuesForKeys(dict)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> userInfo = <span class="type">UserInfo</span>(dict: [<span class="string">"name"</span>:<span class="string">"Len"</span>, <span class="string">"age"</span>:<span class="number">24</span>, <span class="string">"address"</span>:<span class="string">"ShenZhen"</span>])</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(userInfo.name)</span> <span class="subst">\(userInfo.age)</span> <span class="subst">\(userInfo.address)</span>"</span>)</div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.andywu.cn/2016/12/16/Swift学习记录随笔04/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/02/Swift学习记录随笔03/" class="archive-article-date">
-  	<time datetime="2016-12-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/02/Swift学习记录随笔03/">Swift 学习记录随笔03</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/17/Swift学习记录随笔02/" class="archive-article-date">
-  	<time datetime="2016-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/17/Swift学习记录随笔02/">Swift 学习记录随笔02</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/12/Swift学习记录随笔01/" class="archive-article-date">
-  	<time datetime="2016-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/12/Swift学习记录随笔01/">Swift 学习记录随笔01</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" class="archive-article-date">
-  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/">Xcode 8 构建版本无效或无法被找到的原因</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-OC/">iOS-OC</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/10/iOS_10_收不到后台推送的通知/" class="archive-article-date">
-  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/10/iOS_10_收不到后台推送的通知/">关于iOS 10 无法收到极光推送通知的问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-OC/">iOS-OC</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/08/个人博客的搭建/" class="archive-article-date">
-  	<time datetime="2016-10-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/08/个人博客的搭建/">个人博客的搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/12/02/Swift学习记录随笔03/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift 学习记录随笔03</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
-    
+
+
+
+
+
+
 
 
           </div>
@@ -391,8 +317,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
