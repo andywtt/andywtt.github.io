@@ -26,7 +26,7 @@
 使用KVC方法之前，应该调用 super.init 保证对象实例化完成
 
 123456789101112class UserInfo: NSObject &amp;#123;    var name: String?    var a">
-<meta property="og:updated_time" content="2016-12-29T06:46:07.000Z">
+<meta property="og:updated_time" content="2017-01-16T11:57:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 学习记录随笔04">
 <meta name="twitter:description" content="字典转模型
@@ -173,8 +173,7 @@
 <li>使用KVC方法之前，应该调用 super.init 保证对象实例化完成</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> address: <span class="type">String</span>?</div><div class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>:<span class="type">Any</span>]) &#123;</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        setValuesForKeys(dict)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> userInfo = <span class="type">UserInfo</span>(dict: [<span class="string">"name"</span>:<span class="string">"Len"</span>, <span class="string">"age"</span>:<span class="number">24</span>, <span class="string">"address"</span>:<span class="string">"ShenZhen"</span>])</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(userInfo.name)</span> <span class="subst">\(userInfo.age)</span> <span class="subst">\(userInfo.address)</span>"</span>)</div></pre></td></tr></table></figure>
-<p>###遍历构造函数</p>
-<ul>
+<h3 id="遍历构造函数"><a href="#遍历构造函数" class="headerlink" title="遍历构造函数"></a>遍历构造函数</h3><ul>
 <li>必须加<code>convenience</code></li>
 <li>只有满足条件才能实例化对象，防止造成不必要的内存开销</li>
 <li>简化对象的创建</li>
