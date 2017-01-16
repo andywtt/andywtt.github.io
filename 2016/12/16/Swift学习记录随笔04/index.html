@@ -26,7 +26,7 @@
 使用KVC方法之前，应该调用 super.init 保证对象实例化完成
 
 123456789101112class UserInfo: NSObject &amp;#123;    var name: String?    var a">
-<meta property="og:updated_time" content="2016-12-19T10:10:21.000Z">
+<meta property="og:updated_time" content="2016-12-29T06:46:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 学习记录随笔04">
 <meta name="twitter:description" content="字典转模型
@@ -173,6 +173,18 @@
 <li>使用KVC方法之前，应该调用 super.init 保证对象实例化完成</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> address: <span class="type">String</span>?</div><div class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>:<span class="type">Any</span>]) &#123;</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        setValuesForKeys(dict)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> userInfo = <span class="type">UserInfo</span>(dict: [<span class="string">"name"</span>:<span class="string">"Len"</span>, <span class="string">"age"</span>:<span class="number">24</span>, <span class="string">"address"</span>:<span class="string">"ShenZhen"</span>])</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(userInfo.name)</span> <span class="subst">\(userInfo.age)</span> <span class="subst">\(userInfo.address)</span>"</span>)</div></pre></td></tr></table></figure>
+<p>###遍历构造函数</p>
+<ul>
+<li>必须加<code>convenience</code></li>
+<li>只有满足条件才能实例化对象，防止造成不必要的内存开销</li>
+<li>简化对象的创建</li>
+<li>本身不负责属性的创建和初始化工作</li>
+<li>可以返回<code>nil</code></li>
+<li>必须调用本类的<code>self.init</code>，而不能调用父类的<code>super.init</code></li>
+<li>不能被重写，只负责本类属性的判断和初始化</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIColor</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">rgb</span><span class="params">(r: Float, g: Float, b:Float, a:Float = <span class="number">1.0</span>)</span></span> -&gt; <span class="type">UIColor</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">UIColor</span>(colorLiteralRed: r/<span class="number">255.0</span>, green: g/<span class="number">255.0</span>, blue: b/<span class="number">255.0</span>, alpha: a)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hexColor</span><span class="params">(rgb: Int, a: Float = <span class="number">1.0</span>)</span></span> -&gt; <span class="type">UIColor</span> &#123;</div><div class="line">        <span class="keyword">let</span> red   = <span class="type">CGFloat</span>((rgb &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> green = <span class="type">CGFloat</span>((rgb &amp; <span class="number">0xFF00</span>) &gt;&gt; <span class="number">8</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> blue  = <span class="type">CGFloat</span>(rgb &amp; <span class="number">0xFF</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">return</span> <span class="type">UIColor</span>(red: red, green: green, blue: blue, alpha: <span class="type">CGFloat</span>(a))</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">public</span> <span class="keyword">init</span>(hexColor: <span class="type">Int</span>, a:<span class="type">CGFloat</span> = <span class="number">1.0</span>) &#123;</div><div class="line">        <span class="keyword">let</span> red   = <span class="type">CGFloat</span>((hexColor &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> green = <span class="type">CGFloat</span>((hexColor &amp; <span class="number">0xFF00</span>) &gt;&gt; <span class="number">8</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> blue  = <span class="type">CGFloat</span>(hexColor &amp; <span class="number">0xFF</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(red: red, green: green, blue: blue, alpha: a)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIButton</span> </span>&#123;</div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(title: <span class="type">String</span>, color: <span class="type">UIColor</span> = <span class="type">UIColor</span>(hexColor: <span class="number">0x000000</span>)) &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>()</div><div class="line">        <span class="keyword">self</span>.setTitle(title, <span class="keyword">for</span>: .normal)</div><div class="line">        <span class="keyword">self</span>.setTitleColor(color, <span class="keyword">for</span>: .normal)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">testButton = <span class="type">UIButton</span>(title: <span class="string">"hahaha"</span>, color: <span class="type">UIColor</span>(hexColor: <span class="number">0xff453b</span>))</div></pre></td></tr></table></figure>
+<p>###在对象被销毁前自动调用 deinit<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 没有 func -&gt; 不让调用</span></div><div class="line"><span class="comment">// 没有() -&gt; 不让重载</span></div><div class="line"><span class="comment">// 在对象被销毁前自动调用</span></div><div class="line"><span class="comment">// 类似于 OC 的 dealloc</span></div><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">	</div><div class="line">	<span class="comment">// 跟踪对象的销毁</span></div><div class="line">	<span class="comment">// 必须释放的</span></div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">		使用场景</div><div class="line">		通知：不释放不会崩溃，但是会泄露</div><div class="line">		KVO：不释放会崩溃</div><div class="line">		NSTimer：不销毁会循环引用</div><div class="line">		CADisplayLink</div><div class="line">	*/</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -281,6 +293,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/01/16/CocoaPods使用碰到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CocoaPods使用碰到的问题
+        
+      </div>
+    </a>
+  
   
     <a href="/2016/12/02/Swift学习记录随笔03/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Swift 学习记录随笔03</div>
@@ -304,7 +325,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Andy
+    		&copy; 2017 Andy
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -348,11 +369,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-Swift3.0</a>
+                <a href="javascript:void(0)">iOS-OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-OC</a>
+                <a href="javascript:void(0)">iOS-Swift3.0</a>
               </li>
              
               <li class="article-tag-list-item">

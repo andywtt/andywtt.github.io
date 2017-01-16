@@ -131,6 +131,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CocoaPods使用碰到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/16/CocoaPods使用碰到的问题/">CocoaPods使用碰到的问题</a>
+    </h1>
+  
+
+        <a href="/2017/01/16/CocoaPods使用碰到的问题/" class="archive-article-date">
+  	<time datetime="2017-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-16</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>最开始手动配置的项目，后面要使用高德地图，手动配置麻烦就选择了CocoaPods来自动配置项目，由于时间赶配置后发现编译不通过，报错很多高德地图的文件无法链接：”_OBJC<em>CLASS</em>$_xx文件名”, referenced from:  一大堆。目前原因还没有找到，有谁知道的可以联系我，“关于我”那里有我的联系方式。于是就又删掉与cocoapods有关的所有文件重新手动配置，于是报错了。</p>
+</blockquote>
+<h3 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">diff: /../<span class="type">Podfile</span>.lock: <span class="type">No</span> such file or directory   </div><div class="line">  diff: /<span class="type">Manifest</span>.lock: <span class="type">No</span> such file or directory error: <span class="type">The</span> sandbox <span class="keyword">is</span> not <span class="keyword">in</span> sync with the <span class="type">Podfile</span>.lock. </div><div class="line">  <span class="type">Run</span> 'pod install' or update your <span class="type">CocoaPods</span> installation.</div></pre></td></tr></table></figure>
+<p>网上找了老半天，还是没有找到解决方法，可能也是我搜索问题没有搜好。</p>
+<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><ul>
+<li>找到项目运行文件  app.xcodeproj   </li>
+<li>右键显示包内容</li>
+<li>找到‘project.xcworkspace’，并打开</li>
+<li>搜索 ‘Pods’</li>
+<li>找到搜索的所有Pods，并删除</li>
+<li>重新打开项目就可以运行了</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-OC/">iOS-OC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/16/CocoaPods使用碰到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Swift学习记录随笔04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -156,6 +222,18 @@
 <li>使用KVC方法之前，应该调用 super.init 保证对象实例化完成</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span>: <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> address: <span class="type">String</span>?</div><div class="line">    <span class="keyword">init</span>(dict: [<span class="type">String</span>:<span class="type">Any</span>]) &#123;</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        setValuesForKeys(dict)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> userInfo = <span class="type">UserInfo</span>(dict: [<span class="string">"name"</span>:<span class="string">"Len"</span>, <span class="string">"age"</span>:<span class="number">24</span>, <span class="string">"address"</span>:<span class="string">"ShenZhen"</span>])</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(userInfo.name)</span> <span class="subst">\(userInfo.age)</span> <span class="subst">\(userInfo.address)</span>"</span>)</div></pre></td></tr></table></figure>
+<p>###遍历构造函数</p>
+<ul>
+<li>必须加<code>convenience</code></li>
+<li>只有满足条件才能实例化对象，防止造成不必要的内存开销</li>
+<li>简化对象的创建</li>
+<li>本身不负责属性的创建和初始化工作</li>
+<li>可以返回<code>nil</code></li>
+<li>必须调用本类的<code>self.init</code>，而不能调用父类的<code>super.init</code></li>
+<li>不能被重写，只负责本类属性的判断和初始化</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIColor</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">rgb</span><span class="params">(r: Float, g: Float, b:Float, a:Float = <span class="number">1.0</span>)</span></span> -&gt; <span class="type">UIColor</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">UIColor</span>(colorLiteralRed: r/<span class="number">255.0</span>, green: g/<span class="number">255.0</span>, blue: b/<span class="number">255.0</span>, alpha: a)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hexColor</span><span class="params">(rgb: Int, a: Float = <span class="number">1.0</span>)</span></span> -&gt; <span class="type">UIColor</span> &#123;</div><div class="line">        <span class="keyword">let</span> red   = <span class="type">CGFloat</span>((rgb &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> green = <span class="type">CGFloat</span>((rgb &amp; <span class="number">0xFF00</span>) &gt;&gt; <span class="number">8</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> blue  = <span class="type">CGFloat</span>(rgb &amp; <span class="number">0xFF</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">return</span> <span class="type">UIColor</span>(red: red, green: green, blue: blue, alpha: <span class="type">CGFloat</span>(a))</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">public</span> <span class="keyword">init</span>(hexColor: <span class="type">Int</span>, a:<span class="type">CGFloat</span> = <span class="number">1.0</span>) &#123;</div><div class="line">        <span class="keyword">let</span> red   = <span class="type">CGFloat</span>((hexColor &amp; <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> green = <span class="type">CGFloat</span>((hexColor &amp; <span class="number">0xFF00</span>) &gt;&gt; <span class="number">8</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">let</span> blue  = <span class="type">CGFloat</span>(hexColor &amp; <span class="number">0xFF</span>) / <span class="number">255.0</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(red: red, green: green, blue: blue, alpha: a)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIButton</span> </span>&#123;</div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(title: <span class="type">String</span>, color: <span class="type">UIColor</span> = <span class="type">UIColor</span>(hexColor: <span class="number">0x000000</span>)) &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>()</div><div class="line">        <span class="keyword">self</span>.setTitle(title, <span class="keyword">for</span>: .normal)</div><div class="line">        <span class="keyword">self</span>.setTitleColor(color, <span class="keyword">for</span>: .normal)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">testButton = <span class="type">UIButton</span>(title: <span class="string">"hahaha"</span>, color: <span class="type">UIColor</span>(hexColor: <span class="number">0xff453b</span>))</div></pre></td></tr></table></figure>
+<p>###在对象被销毁前自动调用 deinit<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 没有 func -&gt; 不让调用</span></div><div class="line"><span class="comment">// 没有() -&gt; 不让重载</span></div><div class="line"><span class="comment">// 在对象被销毁前自动调用</span></div><div class="line"><span class="comment">// 类似于 OC 的 dealloc</span></div><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">	</div><div class="line">	<span class="comment">// 跟踪对象的销毁</span></div><div class="line">	<span class="comment">// 必须释放的</span></div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">		使用场景</div><div class="line">		通知：不释放不会崩溃，但是会泄露</div><div class="line">		KVO：不释放会崩溃</div><div class="line">		NSTimer：不销毁会循环引用</div><div class="line">		CADisplayLink</div><div class="line">	*/</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -493,74 +571,6 @@
 
 
   
-    <article id="post-iOS_10_收不到后台推送的通知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/10/iOS_10_收不到后台推送的通知/">关于iOS 10 无法收到极光推送通知的问题</a>
-    </h1>
-  
-
-        <a href="/2016/10/10/iOS_10_收不到后台推送的通知/" class="archive-article-date">
-  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-10</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述：iOS-10-收不到后台推送的通知"><a href="#问题描述：iOS-10-收不到后台推送的通知" class="headerlink" title="问题描述：iOS 10 收不到后台推送的通知"></a>问题描述：iOS 10 收不到后台推送的通知</h3><p>9月底我用Xcode7.3提交了一个版本。后来一想，都出10了还用Xcode7来提交会不会在10上面有些不兼容。于是乎查看了下iOS10的新特效以及需要的新配置。其实代码没有修改什么，主要是下载极光的demo把那代码复制粘贴下，（之前推送没有任何问题）然后再来测试。😭结果收不到。这是多么悲剧的事情…</p>
-<p>于是网上各种搜，大多都是从证书创建入手一步一步配置下去。好吧，说到这里，其实我的代码一直没有问题，不管是极光管理后台的配置还是Apple那繁琐的证书设置都没有问题，那真正的问题再哪里呢？</p>
-<p><strong>粗心大意</strong><br><strong>自己粗心大意</strong><br><strong>&amp;……&amp;%%……&amp;&amp;…………粗心大意</strong></p>
-<h3 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h3><p>言归正传，首先请确认以下几点是否有做好：</p>
-<ul>
-<li>极光后台的证书是否设置正确，如果不知道如何设置请看<a href="http://docs.jiguang.cn/jpush/client/iOS/ios_cer_guide/" target="_blank" rel="external">iOS证书设置指南</a>，<a href="http://docs.jiguang.cn/jpush/client/iOS/ios_guide_new/" target="_blank" rel="external">iOS集成指南</a></li>
-<li>询问后台推送模式是否与APP设置的推送模式一样？如果不一样请先统一一下。</li>
-<li>Xcode 8 的请打开 Push Notifications 。</li>
-<li>优先在开发环境测试，如何测试？😂 直接跑真机调试就可以了。当然代码中的必须设置为开发环境 <code>static BOOL isProduction = NO;</code></li>
-<li>如何测试生产环境，请打包测试吧，不知道打包测试的<a href="http://blog.csdn.net/xin__dong/article/details/47342967" target="_blank" rel="external">请看这里</a>；</li>
-<li>如果还是没有收到，这不是你的问题。真不是你的问题。但可以肯定的是：<code>这是代码的问题</code>，代码的问题如何解决，请直接看极光demo。</li>
-</ul>
-<p>至此，上面都做对了。你就会感叹，终于收到了。</p>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>我的问题是出现在哪里呢？😂 <code>是第5步没有做到位</code></p>
-<p>Xcode 7.3的测试生产环境可以代码直接设置 <code>static BOOL isProduction = YES;</code> ，再让后台也统一为生产环境就能收到了。但是Xcode 8 不行了。被坑死。必须得打包才能测试。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-OC/">iOS-OC</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/10/iOS_10_收不到后台推送的通知/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -575,7 +585,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Andy
+    		&copy; 2017 Andy
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -619,11 +629,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-Swift3.0</a>
+                <a href="javascript:void(0)">iOS-OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">iOS-OC</a>
+                <a href="javascript:void(0)">iOS-Swift3.0</a>
               </li>
              
               <li class="article-tag-list-item">
