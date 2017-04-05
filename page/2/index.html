@@ -131,6 +131,149 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Swift学习记录随笔01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/12/Swift学习记录随笔01/">Swift 学习记录随笔01</a>
+    </h1>
+  
+
+        <a href="/2016/10/12/Swift学习记录随笔01/" class="archive-article-date">
+  	<time datetime="2016-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-12</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="如何关闭-Xcode-8-的系统log日志"><a href="#如何关闭-Xcode-8-的系统log日志" class="headerlink" title="如何关闭 Xcode 8 的系统log日志"></a>如何关闭 Xcode 8 的系统log日志</h3><ul>
+<li>进入地方在你选择模拟器的左边有一个你的App图标和名字，</li>
+<li>点击一下选择Edit Scheme。 </li>
+<li>然后选择Run-&gt;Environment Variables-&gt;+号</li>
+<li>key: OS_ACTIVITY_MODE </li>
+<li>value: disable</li>
+</ul>
+<h3 id="tableview-的自带下拉刷新控件"><a href="#tableview-的自带下拉刷新控件" class="headerlink" title="tableview 的自带下拉刷新控件"></a>tableview 的自带下拉刷新控件</h3><ul>
+<li><p>使用UIRefreshControl 实现 UITableView下拉刷新</p>
+</li>
+<li><p>tabelview refreshcotrol</p>
+</li>
+</ul>
+<h3 id="虚化效果："><a href="#虚化效果：" class="headerlink" title="虚化效果："></a>虚化效果：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> blurEffect = <span class="type">UIBlurEffect</span>(style: .light)</div><div class="line"><span class="keyword">let</span> effect = <span class="type">UIVisualEffectView</span>(effect: blurEffect)</div><div class="line">effect.frame = <span class="type">CGRect</span>()</div><div class="line">supserView.addSubView(effect)</div></pre></td></tr></table></figure>
+<h3 id="第三方常用库"><a href="#第三方常用库" class="headerlink" title="第三方常用库"></a>第三方常用库</h3><ul>
+<li><p>Kingfisher 如同SDWebImage</p>
+</li>
+<li><p>Just 如同AFN</p>
+</li>
+</ul>
+<h3 id="swift中如何使用OC-的文件"><a href="#swift中如何使用OC-的文件" class="headerlink" title="swift中如何使用OC 的文件"></a>swift中如何使用OC 的文件</h3><ul>
+<li><p>new file oc file</p>
+</li>
+<li><p>创建一个 Bridging-Header.h</p>
+</li>
+<li><p>在 BridgingHeader 中 编写：#import &lt;库/库头文件&gt;</p>
+</li>
+</ul>
+<h3 id="心跳关键帧动画："><a href="#心跳关键帧动画：" class="headerlink" title="心跳关键帧动画："></a>心跳关键帧动画：</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> btnAnime = <span class="type">CAKeyframeAnimation</span>(kePath: <span class="string">"transform.scale"</span>)</div><div class="line">btnAnime.values = [<span class="number">1.0</span>, <span class="number">0.7</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">1.0</span>]</div><div class="line">btnAnime.keyTimes = [<span class="number">0.0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.4</span>, <span class="number">0.5</span>, <span class="number">1.0</span>]</div><div class="line">btnAnime.duration = <span class="number">0.2</span></div><div class="line">btn.layer.add(btnAnime, forKey: <span class="string">"SHOW"</span>)</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-Swift3-0/">iOS-Swift3.0</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/12/Swift学习记录随笔01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Xcode 8 构建版本无效或无法被找到的原因" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/">Xcode 8 构建版本无效或无法被找到的原因</a>
+    </h1>
+  
+
+        <a href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" class="archive-article-date">
+  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-10</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>啰嗦几句，可以略过。今天早上我用Xcode 8 构建了4个版本，到最后一个才真正的成功，app是替国外客户开发的，由于沟通不方便要多苦逼就有多苦逼。好在最后问题解决了。</p>
+</blockquote>
+<h3 id="主要原因：-info-plist文件的配置没有写好"><a href="#主要原因：-info-plist文件的配置没有写好" class="headerlink" title="主要原因： info.plist文件的配置没有写好"></a>主要原因： info.plist文件的配置没有写好</h3><p>苹果对于用户的隐私一向做的很好，在以前使用APP外的权限时，有些是不用写配置的，现在不同了。估计想做的更好，于是乎，以前不用设置的权限现在都要设置了。详细的请看下面：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Privacy - Microphone Usage <span class="keyword">Description</span> <span class="comment">//麦克风权限</span></div><div class="line">Privacy - Contacts Usage <span class="keyword">Description</span>   <span class="comment">//通讯录权限</span></div><div class="line">Privacy - Camera Usage <span class="keyword">Description</span>     <span class="comment">//摄像头权限</span></div><div class="line">Privacy - NSSiriUsageDescription       <span class="comment">//Siri的权限</span></div><div class="line">Privacy - Bluetooth Peripheral Usage <span class="keyword">Description</span> <span class="comment">//蓝牙</span></div><div class="line">Privacy - Reminders Usage <span class="keyword">Description</span>  <span class="comment">//提醒事项</span></div><div class="line">Privacy - Motion Usage <span class="keyword">Description</span>     <span class="comment">//运动与健康</span></div><div class="line">Privacy - Media Libaray Usage <span class="keyword">Description</span> <span class="comment">//媒体资源库</span></div><div class="line">Privacy - Calendars Usage <span class="keyword">Description</span>  <span class="comment">//日历</span></div></pre></td></tr></table></figure></p>
+<p>在APP中有用到什么就添加什么，<code>注意，value也得写。不然依旧无法通过。</code></p>
+<p>如下图：<br><img src="http://oeto56f8q.bkt.clouddn.com/xcode8infoset.png" alt="info.plist"></p>
+<h3 id="Xcode-8-的-Capabilities-设置，有用到就打开。"><a href="#Xcode-8-的-Capabilities-设置，有用到就打开。" class="headerlink" title="Xcode 8 的 Capabilities 设置，有用到就打开。"></a>Xcode 8 的 Capabilities 设置，有用到就打开。</h3><p>如，<code>Push Notifications</code> 有用到推送的请打开，并保证 <code>Steps</code> 两项都打勾，不然一样无法通过。</p>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>目前来说我只发先了这个，如果还有其他的原因后期再增加到这里。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-OC/">iOS-OC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS_10_收不到后台推送的通知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -336,6 +479,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">UI</a>
               </li>
             
             <div class="clearfix"></div>

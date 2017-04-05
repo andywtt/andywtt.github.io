@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.andywu.cn">
-  <title>关于iOS 10 无法收到极光推送通知的问题 | Andy</title>
+  <title>点击cell上的button没有反应 | Andy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述：iOS 10 收不到后台推送的通知9月底我用Xcode7.3提交了一个版本。后来一想，都出10了还用Xcode7来提交会不会在10上面有些不兼容。于是乎查看了下iOS10的新特效以及需要的新配置。其实代码没有修改什么，主要是下载极光的demo把那代码复制粘贴下，（之前推送没有任何问题）然后再来测试。😭结果收不到。这是多么悲剧的事情…
-于是网上各种搜，大多都是从证书创建入手一步一步配置下">
+  <meta name="description" content="实现内容：在cell上面添加几个按钮，并用block的方式处理事件。不过此cell的初始方式不是用在tableview上，而是直接init初始化。且cell内的属性是用contentView来添加的。
+造成的问题：当去点击此cell上的按钮时，始终无法响应点击事件。
+问题分析：因为响应者的关系不同。cell的子控件如果要添加到contentView上面，就需要通过tableview初始化cell才">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于iOS 10 无法收到极光推送通知的问题">
-<meta property="og:url" content="http://www.andywu.cn/2016/10/10/iOS_10_收不到后台推送的通知/index.html">
+<meta property="og:title" content="点击cell上的button没有反应">
+<meta property="og:url" content="http://www.andywu.cn/2017/03/01/工作问题记录随便-3月1日/index.html">
 <meta property="og:site_name" content="Andy">
-<meta property="og:description" content="问题描述：iOS 10 收不到后台推送的通知9月底我用Xcode7.3提交了一个版本。后来一想，都出10了还用Xcode7来提交会不会在10上面有些不兼容。于是乎查看了下iOS10的新特效以及需要的新配置。其实代码没有修改什么，主要是下载极光的demo把那代码复制粘贴下，（之前推送没有任何问题）然后再来测试。😭结果收不到。这是多么悲剧的事情…
-于是网上各种搜，大多都是从证书创建入手一步一步配置下">
-<meta property="og:updated_time" content="2016-12-13T08:03:44.000Z">
+<meta property="og:description" content="实现内容：在cell上面添加几个按钮，并用block的方式处理事件。不过此cell的初始方式不是用在tableview上，而是直接init初始化。且cell内的属性是用contentView来添加的。
+造成的问题：当去点击此cell上的按钮时，始终无法响应点击事件。
+问题分析：因为响应者的关系不同。cell的子控件如果要添加到contentView上面，就需要通过tableview初始化cell才">
+<meta property="og:updated_time" content="2017-03-01T01:40:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于iOS 10 无法收到极光推送通知的问题">
-<meta name="twitter:description" content="问题描述：iOS 10 收不到后台推送的通知9月底我用Xcode7.3提交了一个版本。后来一想，都出10了还用Xcode7来提交会不会在10上面有些不兼容。于是乎查看了下iOS10的新特效以及需要的新配置。其实代码没有修改什么，主要是下载极光的demo把那代码复制粘贴下，（之前推送没有任何问题）然后再来测试。😭结果收不到。这是多么悲剧的事情…
-于是网上各种搜，大多都是从证书创建入手一步一步配置下">
+<meta name="twitter:title" content="点击cell上的button没有反应">
+<meta name="twitter:description" content="实现内容：在cell上面添加几个按钮，并用block的方式处理事件。不过此cell的初始方式不是用在tableview上，而是直接init初始化。且cell内的属性是用contentView来添加的。
+造成的问题：当去点击此cell上的按钮时，始终无法响应点击事件。
+问题分析：因为响应者的关系不同。cell的子控件如果要添加到contentView上面，就需要通过tableview初始化cell才">
   
     <link rel="alternative" href="/atom.xml" title="Andy" type="application/atom+xml">
   
@@ -133,39 +136,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-iOS_10_收不到后台推送的通知" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-工作问题记录随便-3月1日" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于iOS 10 无法收到极光推送通知的问题
+      点击cell上的button没有反应
     </h1>
   
 
-        <a href="/2016/10/10/iOS_10_收不到后台推送的通知/" class="archive-article-date">
-  	<time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-10</time>
+        <a href="/2017/03/01/工作问题记录随便-3月1日/" class="archive-article-date">
+  	<time datetime="2017-02-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题描述：iOS-10-收不到后台推送的通知"><a href="#问题描述：iOS-10-收不到后台推送的通知" class="headerlink" title="问题描述：iOS 10 收不到后台推送的通知"></a>问题描述：iOS 10 收不到后台推送的通知</h3><p>9月底我用Xcode7.3提交了一个版本。后来一想，都出10了还用Xcode7来提交会不会在10上面有些不兼容。于是乎查看了下iOS10的新特效以及需要的新配置。其实代码没有修改什么，主要是下载极光的demo把那代码复制粘贴下，（之前推送没有任何问题）然后再来测试。😭结果收不到。这是多么悲剧的事情…</p>
-<p>于是网上各种搜，大多都是从证书创建入手一步一步配置下去。好吧，说到这里，其实我的代码一直没有问题，不管是极光管理后台的配置还是Apple那繁琐的证书设置都没有问题，那真正的问题再哪里呢？</p>
-<p><strong>粗心大意</strong><br><strong>自己粗心大意</strong><br><strong>&amp;……&amp;%%……&amp;&amp;…………粗心大意</strong></p>
-<h3 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h3><p>言归正传，首先请确认以下几点是否有做好：</p>
-<ul>
-<li>极光后台的证书是否设置正确，如果不知道如何设置请看<a href="http://docs.jiguang.cn/jpush/client/iOS/ios_cer_guide/" target="_blank" rel="external">iOS证书设置指南</a>，<a href="http://docs.jiguang.cn/jpush/client/iOS/ios_guide_new/" target="_blank" rel="external">iOS集成指南</a></li>
-<li>询问后台推送模式是否与APP设置的推送模式一样？如果不一样请先统一一下。</li>
-<li>Xcode 8 的请打开 Push Notifications 。</li>
-<li>优先在开发环境测试，如何测试？😂 直接跑真机调试就可以了。当然代码中的必须设置为开发环境 <code>static BOOL isProduction = NO;</code></li>
-<li>如何测试生产环境，请打包测试吧，不知道打包测试的<a href="http://blog.csdn.net/xin__dong/article/details/47342967" target="_blank" rel="external">请看这里</a>；</li>
-<li>如果还是没有收到，这不是你的问题。真不是你的问题。但可以肯定的是：<code>这是代码的问题</code>，代码的问题如何解决，请直接看极光demo。</li>
+        <h3 id="实现内容："><a href="#实现内容：" class="headerlink" title="实现内容："></a>实现内容：</h3><p>在cell上面添加几个按钮，并用block的方式处理事件。不过此cell的初始方式不是用在tableview上，而是直接init初始化。且cell内的属性是用contentView来添加的。</p>
+<h3 id="造成的问题："><a href="#造成的问题：" class="headerlink" title="造成的问题："></a>造成的问题：</h3><p>当去点击此cell上的按钮时，始终无法响应点击事件。</p>
+<h3 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h3><p>因为响应者的关系不同。cell的子控件如果要添加到contentView上面，就需要通过tableview初始化cell才能响应按钮的点击事件。而我当时的初始化方法是直接init来使用。无法让contentView来响应事件。</p>
+<h3 id="问题解决办法："><a href="#问题解决办法：" class="headerlink" title="问题解决办法："></a>问题解决办法：</h3><ul>
+<li>使用initframe方式来初始化cell内的子控件</li>
+<li>用 <code>self addsubview</code> 来添加子控件。</li>
 </ul>
-<p>至此，上面都做对了。你就会感叹，终于收到了。</p>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>我的问题是出现在哪里呢？😂 <code>是第5步没有做到位</code></p>
-<p>Xcode 7.3的测试生产环境可以代码直接设置 <code>static BOOL isProduction = YES;</code> ，再让后台也统一为生产环境就能收到了。但是Xcode 8 不行了。被坑死。必须得打包才能测试。</p>
 
       
 
@@ -260,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.andywu.cn/2016/10/10/iOS_10_收不到后台推送的通知/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.andywu.cn/2017/03/01/工作问题记录随便-3月1日/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/10/10/Xcode 8 构建版本无效或无法被找到的原因/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/05/APP的UI设计/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Xcode 8 构建版本无效或无法被找到的原因
+          APP的UI设计
         
       </div>
     </a>
   
   
-    <a href="/2016/10/08/个人博客的搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">个人博客的搭建</div>
+    <a href="/2017/01/16/CocoaPods使用碰到的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CocoaPods使用碰到的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
